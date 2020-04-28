@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faBiohazard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'WSClientApp';
+  title = 'ADM-19-04';
+  faBiohazard = faBiohazard;
+
+  userName = 'User';
+  password = 'Password';
+  connectionStatus = false;
+
+  onConnect() {
+    this.connectionStatus = !this.connectionStatus;
+  }
 }

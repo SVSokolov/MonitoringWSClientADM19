@@ -1,0 +1,31 @@
+.MainWindow
+{
+    width: 80%;
+    max-width: 1280px;
+    /*margin: 0 auto;*/
+}
+
+.CurrentView
+{
+    margin-top: 12px;
+}
+
+.loginForm .form-group
+{
+    margin-right: 8px;
+}
+
+.loginForm label
+{
+    margin-right: 4px;
+}
+
+.loginForm input
+{
+    max-width: 150px;
+}
+
+.loginForm button
+{
+    min-width: 120px;
+}
