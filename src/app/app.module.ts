@@ -8,10 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StatusPageComponent } from './status-page/status-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StatusPageComponent
   ],
   imports: [
     BrowserModule,

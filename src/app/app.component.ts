@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faBiohazard } from '@fortawesome/free-solid-svg-icons';
+import { WsCommunicationService } from './ws-communication.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,19 @@ import { faBiohazard } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(public wsComm: WsCommunicationService) { }
+
   title = 'ADM-19-04';
   faBiohazard = faBiohazard;
 
   userName = 'User';
   password = 'Password';
-  connectionStatus = false;
 
   onConnect() {
-    this.connectionStatus = !this.connectionStatus;
+    if (this.wsComm.connectionStatus === false) {
+      this.wsComm.connect(this.userName, this.password);
+    } else {
+      this.wsComm.disconnect();
+    }
   }
 }
