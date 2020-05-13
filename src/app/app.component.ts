@@ -12,6 +12,7 @@ export class AppComponent {
 
   title = 'ADM-19-04';
   faBiohazard = faBiohazard;
+  isExpanded: boolean = false;
 
   userName = 'User';
   password = 'Password';

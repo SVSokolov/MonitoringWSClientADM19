@@ -1,1 +1,58 @@
-<p>status-page works!</p>
+<div class="card">
+  <div class="card-header bg-secondary text-light">
+    <h5 class="card-title">Status</h5>
+  </div>
+  <div class="card-body">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="card" *ngIf="wsComm.connectionStatus === true">
+          <div class="card-body">
+            <h5 class="card-title">Hardware</h5>
+            <dl class="row align-items-center">
+              <dt class="col-sm-4">CPU:</dt>
+              <dd class="col-sm-8">{{hwUtilization.cpuModel}}</dd>
+              <dt class="col-sm-4">CPU cores:</dt>
+              <dd class="col-sm-8">{{hwUtilization.cpuCount}}</dd>
+              <dt class="col-sm-4">CPU usage:</dt>
+              <dd class="col-sm-8">
+                <ngb-progressbar showValue="true" type="success" [value]="hwUtilization.cpuUsage">
+                </ngb-progressbar>
+              </dd>
+              <dt class="col-sm-4">Mem total:</dt>
+              <dd class="col-sm-8">{{hwUtilization.memUsage.totalMemMb}}GB</dd>
+              <dt class="col-sm-4">Mem used:</dt>
+              <dd class="col-sm-8">
+                <ngb-progressbar showValue="true" type="success"
+                  [value]="100 - hwUtilization.memUsage.freeMemPercentage"></ngb-progressbar>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Connection</h5>
+            <dl class="row align-items-center">
+              <dt class="col-sm-5">Status:</dt>
+              <dd class="col-sm-7">
+                <span>{{wsComm.connectionStatus === true ? "Connected" : "Not connected"}}</span>
+              </dd>
+              <ng-container *ngIf="wsComm.connectionStatus === true">
+                <dt class="col-sm-5">User name:</dt>
+                <dd class="col-sm-7">{{wsComm.userName}}</dd>
+                <dt class="col-sm-5">Access level:</dt>
+                <dd class="col-sm-7">{{wsComm.accessLevel}}</dd>
+              </ng-container>
+            </dl>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+</div>

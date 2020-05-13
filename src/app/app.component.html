@@ -1,16 +1,16 @@
 <div class="MainWindow mr-auto ml-auto">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/">
       <fa-icon [icon]="faBiohazard"></fa-icon>
       <span>{{title}}</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      aria-controls="navbarSupportedContent" [attr.aria-expanded]="isExpanded" aria-label="Toggle navigation" (click)="isExpanded = !isExpanded">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="!isExpanded">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/machines">Machines</a>
